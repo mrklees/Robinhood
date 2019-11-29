@@ -103,11 +103,14 @@ class Robinhood:
 
         self.username = username
         payload = {
-            'password': password,
-            'username': self.username,
-            'grant_type': 'password',
-            'client_id': self.client_id
-        }
+            "grant_type": "password",
+            "scope": "internal",
+            "client_id": self.client_id,
+            "expires_in": 86400,
+            "device_token": "128d4221-38fb-43ba-86dd-683e356137b7",
+            "password": password,
+            "username": self.username
+        }  
 
         if mfa_code:
             payload['mfa_code'] = mfa_code
